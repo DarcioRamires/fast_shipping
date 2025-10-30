@@ -1,13 +1,1 @@
-<?php
-// Run this once to hash the admin password and update the database.
-// Usage: upload to server and run via browser or CLI.
-include 'conexao.php';
-$plain = '123456';
-$hash = password_hash($plain, PASSWORD_DEFAULT);
-$sql = "UPDATE usuario SET senha = '$hash' WHERE email = 'admin@fastshipping.com'";
-if ($conn->query($sql) === TRUE) {
-    echo "Admin initialized. Email: admin@fastshipping.com  Password: 123456 (hashed)";
-} else {
-    echo "Erro: " . $conn->error;
-}
-?>
+<?php require 'config.php'; $email = 'darcioramires@gmail.com'; $plain = '08242979'; $hash = password_hash($plain, PASSWORD_DEFAULT); $stmt = $pdo->prepare('SELECT id FROM usuario WHERE email = ? LIMIT 1'); $stmt->execute([$email]); if ($stmt->rowCount() > 0) { $pdo->prepare('UPDATE usuario SET senha=? WHERE email=?')->execute([$hash,$email]); echo 'Admin senha atualizada.'; } else { $pdo->prepare('INSERT INTO usuario (nome,email,senha,nivel_acesso) VALUES (?,?,?,"admin")')->execute(['Admin',$email,$hash]); echo 'Admin criado.'; } ?>
