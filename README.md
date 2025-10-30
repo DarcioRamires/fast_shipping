@@ -1,24 +1,12 @@
-# Fast Shipping - Web (Exemplo)
-Projeto exemplo para sistema de fretes "Fast Shipping".
+# Fast Shipping - Web (Local XAMPP)
+This package is preconfigured for local XAMPP (MySQL on localhost:3306, user root, no password).
 
-## Conteúdo
-- Frontend: HTML + Bootstrap
-- Backend: PHP (MySQL)
-- Script SQL para criar o banco em `sql/banco_fast_shipping.sql`
-- Arquivo `.env.sample` para configuração do banco
+## Quick setup
+1. Copy the folder to XAMPP's htdocs (e.g. C:\xampp\htdocs\fast_shipping)
+2. Import `sql/banco_fast_shipping.sql` into phpMyAdmin or run it via MySQL client.
+3. Open browser: http://localhost/fast_shipping/index.html
+4. Run once: http://localhost/fast_shipping/php/init_admin.php (this creates/updates admin user darcioramires@gmail.com with password 08242979)
+5. Login at the index page with the admin credentials.
+6. To enable maps, edit mapa.html and replace YOUR_MAPS_API_KEY with your API key or set it in .env and adjust the script include accordingly.
 
-## Instruções rápidas
-1. Importe `sql/banco_fast_shipping.sql` no phpMyAdmin (ou crie o banco manualmente).
-2. Copie `.env.sample` para `.env` e preencha as credenciais do banco (use seu banco online).
-3. Faça upload de todos os arquivos para seu host PHP (ex: 000webhost) ou em XAMPP local.
-4. Execute `php/init_admin.php` uma vez para criar a senha hash do admin (senha padrão `123456`).
-5. Acesse `index.html` e faça login com `admin@fastshipping.com` / `123456`.
-
-## Observações de segurança
-- Este projeto é um exemplo — não o utilize em produção sem revisar segurança.
-- Atenção ao uso de prepared statements (já utilizado em inserções).
-- Proteja arquivos sensíveis (.env) e use HTTPS.
-
-## Deploy no GitHub
-- Suba apenas frontend (HTML/CSS/JS) no GitHub Pages.
-- Para o backend em PHP, use um host que suporte PHP/MySQL (000webhost, InfinityFree, etc).
+IMPORTANT: This is a demo template. Review security before deploying to production.
